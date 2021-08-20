@@ -26,6 +26,10 @@ class CategoryRepository {
 
     this.categories.push(category);
   }
+
+  list() {
+    return this.categories;
+  }
 }
 
 export {
