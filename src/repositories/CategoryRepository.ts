@@ -30,6 +30,10 @@ class CategoryRepository {
   list() {
     return this.categories;
   }
+
+  findByName(name: string) {
+    return this.categories.find(c => c.name === name);
+  }
 }
 
 export {
