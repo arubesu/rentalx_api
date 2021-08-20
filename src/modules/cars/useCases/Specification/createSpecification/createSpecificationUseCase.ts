@@ -1,11 +1,11 @@
-import { ISpecificationRepository } from '../../repositories/Specification/ISpecificationRepository';
+import { ISpecificationRepository } from '../../../repositories/Specification/ISpecificationRepository';
 
 interface ICreateSpecificationDTO {
   name: string;
   description: string;
 }
 
-class CreateSpecificationService {
+class CreateSpecificationUseCase {
   constructor(private specificationRepository: ISpecificationRepository) { }
 
   execute({ name, description }: ICreateSpecificationDTO): void {
@@ -22,4 +22,4 @@ class CreateSpecificationService {
   }
 }
 
-export { CreateSpecificationService };
+export { CreateSpecificationUseCase };
