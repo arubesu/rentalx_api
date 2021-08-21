@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-    "lint": "eslint --ext .ts --ignore-path .gitignore ."
+    "lint": "eslint --ext .ts --ignore-path .gitignore .",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
   },
   "dependencies": {
     "csv-parse": "^4.16.0",
