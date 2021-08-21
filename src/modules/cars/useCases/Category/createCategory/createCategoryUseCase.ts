@@ -8,8 +8,8 @@ interface ICreateCategoryDTO {
 class CreateCategoryUseCase {
   constructor(private categoryRepository: ICategoryRepository) { }
 
-  execute({ name, description }: ICreateCategoryDTO): void {
-    const existingCategory = this.categoryRepository.findByName(name);
+  async execute({ name, description }: ICreateCategoryDTO): Promise<void> {
+    const existingCategory = await this.categoryRepository.findByName(name);
 
     if (existingCategory) {
       throw new Error(`Category ${name} already exists`);
