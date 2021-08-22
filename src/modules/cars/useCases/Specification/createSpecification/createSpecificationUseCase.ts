@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
+import { RequestError } from '../../../../../errors/RequestError';
 import { ISpecificationRepository } from '../../../repositories/Specification/ISpecificationRepository';
 
 interface ICreateSpecificationDTO {
@@ -20,7 +21,7 @@ class CreateSpecificationUseCase {
     );
 
     if (existingSpecification) {
-      throw new Error(`Specification ${name} already exists`);
+      throw new RequestError(`Specification ${name} already exists`);
     }
 
     await this.specificationRepository.create({

@@ -2,6 +2,7 @@ import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
 
+import { RequestError } from '../../../../errors/RequestError';
 import { IUserRepository } from '../../repositories/IUserRepository';
 
 interface IAuthenticateUserRequest {
@@ -18,7 +19,7 @@ interface IAuthenticateUserResponse {
 }
 
 function onError() {
-  throw new Error('email or password is incorrect');
+  throw new RequestError('email or password is incorrect', 401);
 }
 
 @injectable()
@@ -26,7 +27,7 @@ class AuthenticateUserUseCase {
   constructor(
     @inject('UserRepository')
     private userRepository: IUserRepository,
-  ) { }
+  ) {}
 
   async execute({
     email,
