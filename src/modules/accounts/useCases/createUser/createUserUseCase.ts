@@ -21,6 +21,12 @@ class CreateUserUseCase {
   }: ICreateUserDTO): Promise<void> {
     const passwordHash = await hash(password, 8);
 
+    const existingUser = await this.userRepository.findByEmail(email);
+
+    if (existingUser) {
+      throw new Error('User already exists!');
+    }
+
     this.userRepository.create({
       name,
       email,
