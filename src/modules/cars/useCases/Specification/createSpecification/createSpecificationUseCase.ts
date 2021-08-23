@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-import { RequestError } from '../../../../../errors/RequestError';
-import { ISpecificationRepository } from '../../../repositories/Specification/ISpecificationRepository';
+import { RequestError } from '@errors/RequestError';
+import { ISpecificationRepository } from '@modules/cars/repositories/Specification/ISpecificationRepository';
 
 interface ICreateSpecificationDTO {
   name: string;
@@ -13,7 +13,7 @@ class CreateSpecificationUseCase {
   constructor(
     @inject('SpecificationRepository')
     private specificationRepository: ISpecificationRepository,
-  ) { }
+  ) {}
 
   async execute({ name, description }: ICreateSpecificationDTO): Promise<void> {
     const existingSpecification = await this.specificationRepository.findByName(

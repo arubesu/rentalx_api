@@ -2,8 +2,8 @@ import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
 
-import { RequestError } from '../../../../errors/RequestError';
-import { IUserRepository } from '../../repositories/IUserRepository';
+import { RequestError } from '@errors/RequestError';
+import { IUserRepository } from '@modules/accounts/repositories/IUserRepository';
 
 interface IAuthenticateUserRequest {
   email: string;

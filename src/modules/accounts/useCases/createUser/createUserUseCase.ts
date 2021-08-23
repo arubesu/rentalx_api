@@ -1,7 +1,8 @@
 import { hash } from 'bcrypt';
 import { inject, injectable } from 'tsyringe';
 
-import { RequestError } from '../../../../errors/RequestError';
+import { RequestError } from '@errors/RequestError';
+
 import {
   ICreateUserDTO,
   IUserRepository,

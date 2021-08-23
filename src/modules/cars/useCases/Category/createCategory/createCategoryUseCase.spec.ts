@@ -1,5 +1,6 @@
-import { RequestError } from '../../../../../errors/RequestError';
-import { CategoryRepository } from '../../../repositories/Category/CategoryRepository';
+import { RequestError } from '@errors/RequestError';
+import { CategoryRepository } from '@modules/cars/repositories/Category/CategoryRepository';
+
 import { CreateCategoryUseCase } from './createCategoryUseCase';
 
 let categoryRepository: CategoryRepository;

@@ -1,6 +1,7 @@
-import { RequestError } from '../../../../errors/RequestError';
-import { ICreateUserDTO } from '../../repositories/IUserRepository';
-import { UserRepository } from '../../repositories/UserRepository';
+import { RequestError } from '@errors/RequestError';
+import { ICreateUserDTO } from '@modules/accounts/repositories/IUserRepository';
+import { UserRepository } from '@modules/accounts/repositories/UserRepository';
+
 import { CreateUserUseCase } from '../createUser/createUserUseCase';
 import { AuthenticateUserUseCase } from './AuthenticateUserUseCase';
 

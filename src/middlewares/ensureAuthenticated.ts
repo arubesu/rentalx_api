@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { verify } from 'jsonwebtoken';
 
-import { RequestError } from '../errors/RequestError';
+import { RequestError } from '@errors/RequestError';
 
 export async function ensureAuthenticated(
   request: Request,

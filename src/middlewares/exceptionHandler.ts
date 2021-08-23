@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
-import { RequestError } from '../errors/RequestError';
+import { RequestError } from '@errors/RequestError';
 
 export async function exceptionHandler(
   err: Error,

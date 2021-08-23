@@ -2,9 +2,10 @@ import express from 'express';
 import 'express-async-errors';
 import swaggerUi from 'swagger-ui-express';
 
-import { exceptionHandler } from './middlewares/exceptionHandler';
+import { exceptionHandler } from '@middlewares/exceptionHandler';
+
 import './database';
-import './shared/container';
+import '@shared/container';
 import { router } from './routes';
 import swaggerDocument from './swagger.json';
 

@@ -1,5 +1,6 @@
-import { User } from '../../entities/User';
-import { IUserRepository, ICreateUserDTO } from '../IUserRepository';
+import { User } from '@modules/accounts/entities/User';
+
+import { ICreateUserDTO, IUserRepository } from '../IUserRepository';
 
 class UserRepository implements IUserRepository {
   private repository: User[];

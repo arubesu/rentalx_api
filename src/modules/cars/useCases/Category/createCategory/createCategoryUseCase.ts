@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-import { RequestError } from '../../../../../errors/RequestError';
-import { ICategoryRepository } from '../../../repositories/Category/ICategoryRepository';
+import { RequestError } from '@errors/RequestError';
+import { ICategoryRepository } from '@modules/cars/repositories/Category/ICategoryRepository';
 
 interface ICreateCategoryDTO {
   name: string;
