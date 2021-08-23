@@ -10,8 +10,6 @@ export async function ensureAuthenticated(
 ): Promise<void> {
   const authHeader = request.headers.authorization;
 
-  console.log(authHeader);
-
   if (!authHeader) {
     throw new RequestError('token missing', 401);
   }
@@ -23,6 +21,10 @@ export async function ensureAuthenticated(
       token,
       'cf2312457bba63e1fba504f5df99671f30fce75d',
     );
+
+    request.user = {
+      id: userId as string,
+    };
 
     next();
   } catch {
