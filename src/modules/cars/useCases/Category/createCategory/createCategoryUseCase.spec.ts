@@ -1,3 +1,4 @@
+import { RequestError } from '../../../../../errors/RequestError';
 import { CategoryRepository } from '../../../repositories/Category/CategoryRepository';
 import { CreateCategoryUseCase } from './createCategoryUseCase';
 
@@ -26,5 +27,24 @@ describe('Create a Category', () => {
     const createdCategory = await categoryRepository.findByName(category.name);
 
     expect(createdCategory).toHaveProperty('id');
+  });
+
+  it('should not be able to create duplicated category name', async () => {
+    const category = {
+      name: 'Dummy Category',
+      description: 'Dummy Description',
+    };
+
+    expect(async () => {
+      await createCategoryUseCase.execute({
+        name: category.name,
+        description: category.description,
+      });
+
+      await createCategoryUseCase.execute({
+        name: category.name,
+        description: category.description,
+      });
+    }).rejects.toBeInstanceOf(RequestError);
   });
 });
