@@ -28,7 +28,7 @@ class CreateUserUseCase {
       throw new RequestError('User already exists!');
     }
 
-    this.userRepository.create({
+    await this.userRepository.create({
       name,
       email,
       driver_license,
