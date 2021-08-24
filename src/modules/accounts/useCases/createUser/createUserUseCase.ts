@@ -5,14 +5,14 @@ import { RequestError } from '@errors/RequestError';
 
 import {
   ICreateUserDTO,
-  IUserRepository,
-} from '../../repositories/IUserRepository';
+  IUsersRepository,
+} from '../../repositories/IUsersRepository';
 
 @injectable()
 class CreateUserUseCase {
   constructor(
-    @inject('UserRepository')
-    private userRepository: IUserRepository,
+    @inject('UsersRepository')
+    private usersRepository: IUsersRepository,
   ) {}
 
   async execute({
@@ -23,13 +23,13 @@ class CreateUserUseCase {
   }: ICreateUserDTO): Promise<void> {
     const passwordHash = await hash(password, 8);
 
-    const existingUser = await this.userRepository.findByEmail(email);
+    const existingUser = await this.usersRepository.findByEmail(email);
 
     if (existingUser) {
       throw new RequestError('User already exists!');
     }
 
-    await this.userRepository.create({
+    await this.usersRepository.create({
       name,
       email,
       driver_license,

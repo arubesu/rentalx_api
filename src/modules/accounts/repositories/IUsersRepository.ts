@@ -9,7 +9,7 @@ interface ICreateUserDTO {
   avatar_url?: string;
 }
 
-interface IUserRepository {
+interface IUsersRepository {
   create({
     name,
     driver_license,
@@ -22,4 +22,4 @@ interface IUserRepository {
   findById(userId: string): Promise<User>;
 }
 
-export { IUserRepository, ICreateUserDTO };
+export { IUsersRepository, ICreateUserDTO };

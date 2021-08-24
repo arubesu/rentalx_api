@@ -3,7 +3,7 @@ import { sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
 
 import { RequestError } from '@errors/RequestError';
-import { IUserRepository } from '@modules/accounts/repositories/IUserRepository';
+import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 
 interface IAuthenticateUserRequest {
   email: string;
@@ -25,15 +25,15 @@ function onError() {
 @injectable()
 class AuthenticateUserUseCase {
   constructor(
-    @inject('UserRepository')
-    private userRepository: IUserRepository,
+    @inject('UsersRepository')
+    private usersRepository: IUsersRepository,
   ) {}
 
   async execute({
     email,
     password,
   }: IAuthenticateUserRequest): Promise<IAuthenticateUserResponse> {
-    const user = await this.userRepository.findByEmail(email);
+    const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
       onError();

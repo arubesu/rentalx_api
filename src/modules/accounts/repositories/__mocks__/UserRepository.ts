@@ -1,8 +1,8 @@
 import { User } from '@modules/accounts/entities/User';
 
-import { ICreateUserDTO, IUserRepository } from '../IUserRepository';
+import { ICreateUserDTO, IUsersRepository } from '../IUsersRepository';
 
-class UserRepository implements IUserRepository {
+class UsersRepository implements IUsersRepository {
   private repository: User[];
 
   constructor() {
@@ -39,4 +39,4 @@ class UserRepository implements IUserRepository {
   }
 }
 
-export { UserRepository };
+export { UsersRepository };

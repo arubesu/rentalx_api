@@ -1,21 +1,21 @@
 import { RequestError } from '@errors/RequestError';
-import { ICreateUserDTO } from '@modules/accounts/repositories/IUserRepository';
-import { UserRepository } from '@modules/accounts/repositories/UserRepository';
+import { ICreateUserDTO } from '@modules/accounts/repositories/IUsersRepository';
+import { UsersRepository } from '@modules/accounts/repositories/UsersRepository';
 
 import { CreateUserUseCase } from '../createUser/createUserUseCase';
 import { AuthenticateUserUseCase } from './AuthenticateUserUseCase';
 
 let authenticateUserUseCase: AuthenticateUserUseCase;
-let userRepository: UserRepository;
+let usersRepository: UsersRepository;
 let createUserUseCase: CreateUserUseCase;
 
-jest.mock('../../repositories/UserRepository');
+jest.mock('../../repositories/UsersRepository');
 
 describe('Authenticate User', () => {
   beforeEach(() => {
-    userRepository = new UserRepository();
-    authenticateUserUseCase = new AuthenticateUserUseCase(userRepository);
-    createUserUseCase = new CreateUserUseCase(userRepository);
+    usersRepository = new UsersRepository();
+    authenticateUserUseCase = new AuthenticateUserUseCase(usersRepository);
+    createUserUseCase = new CreateUserUseCase(usersRepository);
   });
 
   test('Should be able to authenticate an user', async () => {
