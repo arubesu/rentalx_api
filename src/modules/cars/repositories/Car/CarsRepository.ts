@@ -33,6 +33,12 @@ class CarsRepository implements ICarsRepository {
 
     return car;
   }
+
+  async findByLicensePlate(license_plate: string): Promise<Car> {
+    return this.repository.findOne({
+      license_plate,
+    });
+  }
 }
 
 export { CarsRepository };
