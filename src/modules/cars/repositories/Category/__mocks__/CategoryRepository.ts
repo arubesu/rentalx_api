@@ -3,11 +3,11 @@ import { v4 as uuidv4 } from 'uuid';
 import { Category } from '@modules/cars/entities/Category';
 
 import {
-  ICategoryRepository,
+  ICategoriesRepository,
   ICreateCategoryDTO,
-} from '../ICategoryRepository';
+} from '../ICategoriesRepository';
 
-class CategoryRepository implements ICategoryRepository {
+class CategoriesRepository implements ICategoriesRepository {
   private repository: Category[];
 
   constructor() {
@@ -32,4 +32,4 @@ class CategoryRepository implements ICategoryRepository {
   }
 }
 
-export { CategoryRepository };
+export { CategoriesRepository };

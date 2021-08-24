@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
 import { RequestError } from '@errors/RequestError';
-import { ICategoryRepository } from '@modules/cars/repositories/Category/ICategoryRepository';
+import { ICategoriesRepository } from '@modules/cars/repositories/Category/ICategoriesRepository';
 
 interface ICreateCategoryDTO {
   name: string;
@@ -11,18 +11,18 @@ interface ICreateCategoryDTO {
 @injectable()
 class CreateCategoryUseCase {
   constructor(
-    @inject('CategoryRepository')
-    private categoryRepository: ICategoryRepository,
+    @inject('CategoriesRepository')
+    private categoriesRepository: ICategoriesRepository,
   ) {}
 
   async execute({ name, description }: ICreateCategoryDTO): Promise<void> {
-    const existingCategory = await this.categoryRepository.findByName(name);
+    const existingCategory = await this.categoriesRepository.findByName(name);
 
     if (existingCategory) {
       throw new RequestError(`Category ${name} already exists`);
     }
 
-    this.categoryRepository.create({
+    this.categoriesRepository.create({
       name,
       description,
     });

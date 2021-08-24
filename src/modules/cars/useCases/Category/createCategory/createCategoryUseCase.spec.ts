@@ -1,17 +1,17 @@
 import { RequestError } from '@errors/RequestError';
-import { CategoryRepository } from '@modules/cars/repositories/Category/CategoryRepository';
+import { CategoriesRepository } from '@modules/cars/repositories/Category/CategoriesRepository';
 
 import { CreateCategoryUseCase } from './createCategoryUseCase';
 
-let categoryRepository: CategoryRepository;
+let categoriesRepository: CategoriesRepository;
 let createCategoryUseCase: CreateCategoryUseCase;
 
-jest.mock('../../../repositories/Category/CategoryRepository');
+jest.mock('../../../repositories/Category/CategoriesRepository');
 
 describe('Create a Category', () => {
   beforeEach(() => {
-    categoryRepository = new CategoryRepository();
-    createCategoryUseCase = new CreateCategoryUseCase(categoryRepository);
+    categoriesRepository = new CategoriesRepository();
+    createCategoryUseCase = new CreateCategoryUseCase(categoriesRepository);
   });
 
   it('should be able to create a new category', async () => {
@@ -25,7 +25,7 @@ describe('Create a Category', () => {
       description: category.description,
     });
 
-    const createdCategory = await categoryRepository.findByName(category.name);
+    const createdCategory = await categoriesRepository.findByName(category.name);
 
     expect(createdCategory).toHaveProperty('id');
   });

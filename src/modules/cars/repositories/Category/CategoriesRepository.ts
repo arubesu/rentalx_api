@@ -2,9 +2,9 @@ import { getRepository, Repository } from 'typeorm';
 
 import { Category } from '@modules/cars/entities/Category';
 
-import { ICategoryRepository, ICreateCategoryDTO } from './ICategoryRepository';
+import { ICategoriesRepository, ICreateCategoryDTO } from './ICategoriesRepository';
 
-class CategoryRepository implements ICategoryRepository {
+class CategoriesRepository implements ICategoriesRepository {
   private repository: Repository<Category>;
 
   constructor() {
@@ -32,4 +32,4 @@ class CategoryRepository implements ICategoryRepository {
   }
 }
 
-export { CategoryRepository };
+export { CategoriesRepository };
