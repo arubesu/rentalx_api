@@ -6,17 +6,17 @@ import { CarsRepository } from '@modules/cars/repositories/Car/CarsRepository';
 import { ICarsRepository } from '@modules/cars/repositories/Car/ICarsRepository';
 import { CategoriesRepository } from '@modules/cars/repositories/Category/CategoriesRepository';
 import { ICategoriesRepository } from '@modules/cars/repositories/Category/ICategoriesRepository';
-import { ISpecificationRepository } from '@modules/cars/repositories/Specification/ISpecificationRepository';
-import { SpecificationRepository } from '@modules/cars/repositories/Specification/SpecificationRepository';
+import { ISpecificationsRepository } from '@modules/cars/repositories/Specification/ISpecificationsRepository';
+import { SpecificationsRepository } from '@modules/cars/repositories/Specification/SpecificationsRepository';
 
 container.registerSingleton<ICategoriesRepository>(
   'CategoriesRepository',
   CategoriesRepository,
 );
 
-container.registerSingleton<ISpecificationRepository>(
-  'SpecificationRepository',
-  SpecificationRepository,
+container.registerSingleton<ISpecificationsRepository>(
+  'SpecificationsRepository ',
+  SpecificationsRepository,
 );
 
 container.registerSingleton<IUsersRepository>(

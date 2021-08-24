@@ -4,10 +4,10 @@ import { Specification } from '@modules/cars/entities/Specification';
 
 import {
   ICreateSpecificationDTO,
-  ISpecificationRepository,
-} from './ISpecificationRepository';
+  ISpecificationsRepository,
+} from './ISpecificationsRepository';
 
-class SpecificationRepository implements ISpecificationRepository {
+class SpecificationsRepository implements ISpecificationsRepository {
   private repository: Repository<Specification>;
 
   constructor() {
@@ -32,4 +32,4 @@ class SpecificationRepository implements ISpecificationRepository {
   }
 }
 
-export { SpecificationRepository };
+export { SpecificationsRepository };
