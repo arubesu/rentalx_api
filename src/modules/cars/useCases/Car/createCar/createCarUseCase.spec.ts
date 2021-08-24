@@ -50,4 +50,17 @@ describe('Create Car', () => {
       }),
     ).rejects.toEqual(new RequestError('car already registered'));
   });
+
+  test('Should be able to create a available car to rent', async () => {
+    const car = await createCarUseCase.execute({
+      name: 'name',
+      description: 'description',
+      daily_rate: 100,
+      license_plate: 'plate',
+      fine_amount: 50,
+      brand: 'brand',
+      category_id: 'category_id',
+    });
+    expect(car.available).toBe(true);
+  });
 });
