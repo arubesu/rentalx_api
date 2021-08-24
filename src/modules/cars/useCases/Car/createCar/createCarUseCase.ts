@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
+import { RequestError } from '@errors/RequestError';
 import { Car } from '@modules/cars/entities/Car';
 import { ICarsRepository } from '@modules/cars/repositories/Car/ICarsRepository';
 
@@ -27,6 +28,12 @@ class CreateCarUseCase {
     brand,
     category_id,
   }: IRequest): Promise<Car> {
+    const foundCar = await this.carsRepository.findByLicensePlate(
+      license_plate,
+    );
+    if (foundCar) {
+      throw new RequestError('car already registered');
+    }
     const car = await this.carsRepository.create({
       name,
       description,
