@@ -1,6 +1,10 @@
 import { Car } from '@modules/cars/entities/Car';
 
-import { ICarsRepository, ICreateCarDTO } from '../ICarsRepository';
+import {
+  ICarsRepository,
+  ICreateCarDTO,
+  IListCarDTO,
+} from '../ICarsRepository';
 
 class CarsRepository implements ICarsRepository {
   private repository: Car[];
@@ -36,6 +40,32 @@ class CarsRepository implements ICarsRepository {
 
   async findByLicensePlate(license_plate: string): Promise<Car> {
     return this.repository.find(car => car.license_plate === license_plate);
+  }
+
+  async findAvailableByFilter({
+    name,
+    brand,
+    category_id,
+  }: IListCarDTO): Promise<Car[]> {
+    return this.repository.filter(car => {
+      if (!car.available) {
+        return null;
+      }
+
+      if (!name && !category_id && !brand) {
+        return car;
+      }
+
+      if (
+        (name && car.name === name) ||
+        (category_id && car.category_id === category_id) ||
+        (brand && car.brand === brand)
+      ) {
+        return car;
+      }
+
+      return null;
+    });
   }
 }
 
