@@ -11,7 +11,7 @@ interface ICreateSpecificationDTO {
 @injectable()
 class CreateSpecificationUseCase {
   constructor(
-    @inject('SpecificationsRepository ')
+    @inject('SpecificationsRepository')
     private specificationsRepository: ISpecificationsRepository,
   ) {}
 
