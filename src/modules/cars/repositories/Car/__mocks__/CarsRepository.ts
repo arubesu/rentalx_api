@@ -67,6 +67,10 @@ class CarsRepository implements ICarsRepository {
       return null;
     });
   }
+
+  async findById(car_id: string): Promise<Car> {
+    return this.repository.find(car => car.id === car_id);
+  }
 }
 
 export { CarsRepository };
