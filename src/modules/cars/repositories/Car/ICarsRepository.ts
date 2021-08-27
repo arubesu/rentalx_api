@@ -10,7 +10,14 @@ export interface ICreateCarDTO {
   category_id: string;
 }
 
+export interface IListCarDTO {
+  name?: string;
+  brand?: string;
+  category_id?: string;
+}
+
 export interface ICarsRepository {
   create(data: ICreateCarDTO): Promise<Car>;
   findByLicensePlate(license_plate: string): Promise<Car>;
+  findAvailableByFilter(filter: IListCarDTO): Promise<Car[]>;
 }
