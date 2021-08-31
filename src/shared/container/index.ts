@@ -2,7 +2,9 @@ import { container } from 'tsyringe';
 
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { UsersRepository } from '@modules/accounts/repositories/UsersRepository';
+import { CarImagesRepository } from '@modules/cars/repositories/Car/CarImagesRepository';
 import { CarsRepository } from '@modules/cars/repositories/Car/CarsRepository';
+import ICarsImagesRepository from '@modules/cars/repositories/Car/ICarImagesRepository';
 import { ICarsRepository } from '@modules/cars/repositories/Car/ICarsRepository';
 import { CategoriesRepository } from '@modules/cars/repositories/Category/CategoriesRepository';
 import { ICategoriesRepository } from '@modules/cars/repositories/Category/ICategoriesRepository';
@@ -25,3 +27,8 @@ container.registerSingleton<IUsersRepository>(
 );
 
 container.registerSingleton<ICarsRepository>('CarsRepository', CarsRepository);
+
+container.registerSingleton<ICarsImagesRepository>(
+  'CarImagesRepository',
+  CarImagesRepository,
+);
