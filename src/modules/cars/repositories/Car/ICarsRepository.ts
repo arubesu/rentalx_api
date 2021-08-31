@@ -17,6 +17,7 @@ export interface IListCarDTO {
 }
 
 export interface ICarsRepository {
+  updateAvailable(car_id: string, available: boolean): Promise<void>;
   create(data: ICreateCarDTO): Promise<Car>;
   findByLicensePlate(license_plate: string): Promise<Car>;
   findAvailableByFilter(filter: IListCarDTO): Promise<Car[]>;
