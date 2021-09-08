@@ -6,6 +6,7 @@ import { exceptionHandler } from '@middlewares/exceptionHandler';
 
 import './database';
 import '@shared/container';
+import '@shared/container/providers';
 import { router } from './routes';
 import swaggerDocument from './swagger.json';
 
