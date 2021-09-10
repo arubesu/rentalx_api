@@ -25,7 +25,9 @@ describe('Create a Category', () => {
       description: category.description,
     });
 
-    const createdCategory = await categoriesRepository.findByName(category.name);
+    const createdCategory = await categoriesRepository.findByName(
+      category.name,
+    );
 
     expect(createdCategory).toHaveProperty('id');
   });
