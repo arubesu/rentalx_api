@@ -1,6 +1,6 @@
 import { getRepository, Repository } from 'typeorm';
 
-import { Rental } from '../Rental';
+import { Rental } from '../entities/Rental';
 import { ICreateRentalDTO, IRentalsRepository } from './IRentalsRepository';
 
 class RentalsRepository implements IRentalsRepository {

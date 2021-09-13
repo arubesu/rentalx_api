@@ -1,4 +1,5 @@
-import { Rental } from '../../Rental';
+import { Rental } from '@modules/rentals/entities/Rental';
+
 import { ICreateRentalDTO, IRentalsRepository } from '../IRentalsRepository';
 
 class RentalsRepository implements IRentalsRepository {

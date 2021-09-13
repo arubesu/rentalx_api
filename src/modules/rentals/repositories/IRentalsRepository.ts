@@ -1,4 +1,4 @@
-import { Rental } from '../Rental';
+import { Rental } from '../entities/Rental';
 
 export interface ICreateRentalDTO {
   user_id: string;

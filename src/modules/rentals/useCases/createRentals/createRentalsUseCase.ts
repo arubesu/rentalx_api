@@ -2,9 +2,9 @@ import { injectable, inject } from 'tsyringe';
 
 import { RequestError } from '@errors/RequestError';
 import { ICarsRepository } from '@modules/cars/repositories/Car/ICarsRepository';
+import { Rental } from '@modules/rentals/entities/Rental';
 import { IDateProvider } from '@shared/container/providers/dateProvider/IDateProvider';
 
-import { Rental } from '../../Rental';
 import { IRentalsRepository } from '../../repositories/IRentalsRepository';
 
 interface IRequest {
