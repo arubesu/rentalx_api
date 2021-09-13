@@ -1,9 +1,10 @@
 import { hash } from 'bcrypt';
 import request from 'supertest';
-import { Connection, createConnection } from 'typeorm';
+import { Connection } from 'typeorm';
 import { v4 } from 'uuid';
 
 import { app } from '../../../../../app';
+import createConnection from '../../../../../database/index';
 
 let connection: Connection;
 
