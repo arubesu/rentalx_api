@@ -37,8 +37,8 @@ class ReturnRentalUseCase {
     let daily = this.dateProvider.compareInDays(rental.start_date, now);
 
     const delayedDays = this.dateProvider.compareInDays(
-      now,
       rental.expected_return_date,
+      now,
     );
 
     if (daily < minimumDaily) {
