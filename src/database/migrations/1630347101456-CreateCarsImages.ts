@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateCarsImages1617377708986 implements MigrationInterface {
+export class CreateCarsImages1630347101456 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({

@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 import { MigrationInterface, QueryRunner, TableColumn } from 'typeorm';
 
 export class AlterUserAddAvatar1629738232743 implements MigrationInterface {
