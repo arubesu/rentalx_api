@@ -2,11 +2,10 @@ import { hash } from 'bcrypt';
 import { inject, injectable } from 'tsyringe';
 
 import { RequestError } from '@errors/RequestError';
-
 import {
-  ICreateUserDTO,
   IUsersRepository,
-} from '../../repositories/IUsersRepository';
+  ICreateUserDTO,
+} from '@modules/accounts/repositories/users/IUsersRepository';
 
 @injectable()
 class CreateUserUseCase {

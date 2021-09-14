@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 
 import { RequestError } from '@errors/RequestError';
-import { UsersRepository } from '@modules/accounts/repositories/UsersRepository';
+import { UsersRepository } from '@modules/accounts/repositories/users/UsersRepository';
 
 export async function ensureUserIsAdmin(
   request: Request,

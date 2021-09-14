@@ -1,6 +1,6 @@
 import { RequestError } from '@errors/RequestError';
-import { ICreateUserDTO } from '@modules/accounts/repositories/IUsersRepository';
-import { UsersRepository } from '@modules/accounts/repositories/UsersRepository';
+import { ICreateUserDTO } from '@modules/accounts/repositories/users/IUsersRepository';
+import { UsersRepository } from '@modules/accounts/repositories/users/UsersRepository';
 
 import { CreateUserUseCase } from '../createUser/createUserUseCase';
 import { AuthenticateUserUseCase } from './AuthenticateUserUseCase';

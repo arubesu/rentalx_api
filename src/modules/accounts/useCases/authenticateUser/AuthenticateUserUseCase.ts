@@ -3,7 +3,7 @@ import { sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
 
 import { RequestError } from '@errors/RequestError';
-import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
+import { IUsersRepository } from '@modules/accounts/repositories/users/IUsersRepository';
 
 interface IAuthenticateUserRequest {
   email: string;
