@@ -2,6 +2,8 @@ import { container } from 'tsyringe';
 
 import { IUsersRepository } from '@modules/accounts/repositories/users/IUsersRepository';
 import { UsersRepository } from '@modules/accounts/repositories/users/UsersRepository';
+import { IUsersTokensRepository } from '@modules/accounts/repositories/userTokens/IUsersTokensRepository';
+import { UsersTokensRepository } from '@modules/accounts/repositories/userTokens/UsersTokensRepository';
 import { CarImagesRepository } from '@modules/cars/repositories/Car/CarImagesRepository';
 import { CarsRepository } from '@modules/cars/repositories/Car/CarsRepository';
 import ICarsImagesRepository from '@modules/cars/repositories/Car/ICarImagesRepository';
@@ -38,4 +40,9 @@ container.registerSingleton<ICarsImagesRepository>(
 container.registerSingleton<IRentalsRepository>(
   'RentalsRepository',
   RentalsRepository,
+);
+
+container.registerSingleton<IUsersTokensRepository>(
+  'UsersTokenRepository',
+  UsersTokensRepository,
 );
