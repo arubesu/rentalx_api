@@ -58,7 +58,7 @@ class SendForgotPasswordMailUseCase {
         second: 'numeric',
         hour12: false,
       }).format(expires_date),
-      url: `${process.env.FORGOT_PASSWORD_URL}${reset_token}`,
+      url: `${process.env.FORGOT_PASSWORD_URL}?token=${reset_token}`,
     };
 
     await this.mailProvider.sendMail(
