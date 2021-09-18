@@ -1,6 +1,9 @@
 import { RequestError } from '@errors/RequestError';
 import { ICreateUserDTO } from '@modules/accounts/repositories/users/IUsersRepository';
 import { UsersRepository } from '@modules/accounts/repositories/users/UsersRepository';
+import { UsersTokensRepository } from '@modules/accounts/repositories/userTokens/UsersTokensRepository';
+import { DayjsDateProvider } from '@shared/container/providers/dateProvider/dayjsDateProvider';
+import { IDateProvider } from '@shared/container/providers/dateProvider/IDateProvider';
 
 import { CreateUserUseCase } from '../createUser/createUserUseCase';
 import { AuthenticateUserUseCase } from './AuthenticateUserUseCase';
@@ -8,13 +11,22 @@ import { AuthenticateUserUseCase } from './AuthenticateUserUseCase';
 let authenticateUserUseCase: AuthenticateUserUseCase;
 let usersRepository: UsersRepository;
 let createUserUseCase: CreateUserUseCase;
+let userTokensRepository: UsersTokensRepository;
+let dateProvider: IDateProvider;
 
-jest.mock('../../repositories/UsersRepository');
+jest.mock('@modules/accounts/repositories/users/UsersRepository');
+jest.mock('@modules/accounts/repositories/userTokens/UsersTokensRepository');
 
 describe('Authenticate User', () => {
   beforeEach(() => {
     usersRepository = new UsersRepository();
-    authenticateUserUseCase = new AuthenticateUserUseCase(usersRepository);
+    dateProvider = new DayjsDateProvider();
+    userTokensRepository = new UsersTokensRepository();
+    authenticateUserUseCase = new AuthenticateUserUseCase(
+      usersRepository,
+      userTokensRepository,
+      dateProvider,
+    );
     createUserUseCase = new CreateUserUseCase(usersRepository);
   });
 
