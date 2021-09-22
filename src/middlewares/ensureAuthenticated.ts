@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { verify } from 'jsonwebtoken';
 
+import auth from '@config/auth';
 import { RequestError } from '@errors/RequestError';
 
 export async function ensureAuthenticated(
@@ -17,10 +18,7 @@ export async function ensureAuthenticated(
   const [, token] = authHeader.split(' ');
 
   try {
-    const { sub: userId } = verify(
-      token,
-      'cf2312457bba63e1fba504f5df99671f30fce75d',
-    );
+    const { sub: userId } = verify(token, auth.secret_token);
 
     request.user = {
       id: userId as string,
