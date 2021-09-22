@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
 import { IUsersRepository } from '@modules/accounts/repositories/users/IUsersRepository';
-import { IStorageProvider } from '@shared/container/providers/Storage/IStorageProvider';
+import { IStorageProvider } from '@shared/container/providers/storageProvider/IStorageProvider';
 import { deleteFile } from '@utils/file';
 
 interface IUpdateUserAvatarRequest {
