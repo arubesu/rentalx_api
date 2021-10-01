@@ -120,3 +120,6 @@ dist
 #temp files
 tmp/
 !tmp/.gitkeep
+
+#ORM config 
+ormconfig.json
